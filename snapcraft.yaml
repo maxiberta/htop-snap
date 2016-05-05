@@ -1,6 +1,6 @@
 name: htop
 version: 2.0.1
-summary: Interactive processes viewer
+summary: Interactive processes viewer (WIP)
 description:
   Htop is an ncursed-based process viewer similar to top, but it
   allows one to scroll the list vertically and horizontally to see
@@ -8,6 +8,9 @@ description:
   .
   Tasks related to processes (killing, renicing) can be done without
   entering their PIDs.
+
+  This is a work in progress. Not fully working due to process isolation.
+  Needs to be installed with '--devmode'.
 
 apps:
   htop:

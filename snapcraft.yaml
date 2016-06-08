@@ -12,6 +12,7 @@ description:
 apps:
   htop:
     command: bin/htop
+    plugs: [system-observe]
 
 parts:
   htop:

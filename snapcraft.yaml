@@ -12,7 +12,7 @@ description:
 apps:
   htop:
     command: bin/htop
-    plugs: [system-observe]
+    plugs: [system-observe, process-control]
 
 parts:
   htop:

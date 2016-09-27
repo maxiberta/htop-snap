@@ -9,6 +9,9 @@ description:
   Tasks related to processes (killing, renicing) can be done without
   entering their PIDs.
 
+grade: stable
+confinement: strict
+
 apps:
   htop:
     command: bin/htop

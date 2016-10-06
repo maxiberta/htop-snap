@@ -1,5 +1,5 @@
 name: htop
-version: 2.0.1
+version: 2.0.2
 summary: Interactive processes viewer
 description: |
   Htop is an ncursed-based process viewer similar to top, but it

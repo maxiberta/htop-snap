@@ -1,5 +1,5 @@
 name: htop
-version: 2.0.2
+version: 2.0.2-master
 summary: Interactive processes viewer
 description: |
   Htop is an ncurses-based process viewer similar to top, but it
@@ -9,7 +9,7 @@ description: |
   Tasks related to processes (killing, renicing) can be done without
   entering their PIDs.
 
-grade: stable
+grade: devel
 confinement: strict
 
 apps:
@@ -22,5 +22,5 @@ parts:
     plugin: autotools
     source: https://github.com/hishamhm/htop
     source-type: git
-    source-tag: 2.0.2
+    source-tag: master
     build-packages: [libncursesw5-dev]

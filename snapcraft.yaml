@@ -1,4 +1,4 @@
-name: htop
+name: htop-snap
 version: 2.0.2-master
 summary: Interactive processes viewer
 description: |
@@ -10,7 +10,7 @@ description: |
   entering their PIDs.
 
 grade: devel
-confinement: strict
+confinement: classic
 
 apps:
   htop:

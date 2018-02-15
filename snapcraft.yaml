@@ -23,4 +23,4 @@ parts:
     source: https://github.com/hishamhm/htop
     source-type: git
     source-tag: 2.1.0
-    build-packages: [libncursesw5-dev]
+    build-packages: [libncursesw5-dev, pkg-config]

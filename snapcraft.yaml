@@ -1,5 +1,5 @@
-name: htop-snap
-version: 2.1.0
+name: htop
+version: master
 summary: Interactive processes viewer
 description: |
   Htop is an ncurses-based process viewer similar to top, but it
@@ -10,7 +10,7 @@ description: |
   entering their PIDs.
 
 grade: devel
-confinement: classic
+confinement: strict
 
 apps:
   htop:
@@ -22,5 +22,5 @@ parts:
     plugin: autotools
     source: https://github.com/hishamhm/htop
     source-type: git
-    source-tag: 2.1.0
+    source-tag: master
     build-packages: [libncursesw5-dev, pkg-config]

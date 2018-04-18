@@ -1,5 +1,7 @@
 name: htop
-version: 2.2.0
+version: master
+version-script: |
+    echo $(git -C parts/htop/src/ describe --tags)
 summary: Interactive processes viewer
 description: |
   Htop is an ncurses-based process viewer similar to top, but it
@@ -22,5 +24,5 @@ parts:
     plugin: autotools
     source: https://github.com/hishamhm/htop
     source-type: git
-    source-tag: 2.2.0
+    source-tag: master
     build-packages: [libncursesw5-dev, pkg-config]

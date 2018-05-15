@@ -25,4 +25,4 @@ parts:
     source-type: git
     source-tag: master
     build-packages: [libncursesw5-dev, pkg-config]
-    stage-packages: [lsof, ncurses-term]
+    stage-packages: [lsof]

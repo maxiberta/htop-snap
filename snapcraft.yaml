@@ -16,7 +16,7 @@ confinement: strict
 apps:
   htop:
     command: bin/htop
-    plugs: [system-observe, process-control]
+    plugs: [system-observe, process-control, mount-observe]
 
 parts:
   htop:
@@ -25,4 +25,4 @@ parts:
     source-type: git
     source-tag: master
     build-packages: [libncursesw5-dev, pkg-config]
-    stage-packages: [lsof]
+    stage-packages: [lsof, ncurses-term]

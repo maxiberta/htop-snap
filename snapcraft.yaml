@@ -10,13 +10,13 @@ description: |
   Tasks related to processes (killing, renicing) can be done without
   entering their PIDs.
 
-grade: devel
+grade: stable
 confinement: strict
 
 apps:
   htop:
     command: bin/htop
-    plugs: [system-observe, process-control]
+    plugs: [system-observe, process-control, mount-observe]
 
 parts:
   htop:
@@ -25,3 +25,4 @@ parts:
     source-type: git
     source-tag: next
     build-packages: [libncursesw5-dev, pkg-config]
+    stage-packages: [lsof]

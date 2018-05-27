@@ -15,8 +15,11 @@ confinement: strict
 
 apps:
   htop:
-    command: bin/htop
-    plugs: [system-observe, process-control, mount-observe]
+    command: bin/htop.wrapper
+    plugs:
+      - mount-observe
+      - process-control
+      - system-observe
 
 parts:
   htop:
@@ -24,5 +27,15 @@ parts:
     source: https://github.com/hishamhm/htop
     source-type: git
     source-tag: master
-    build-packages: [libncursesw5-dev, pkg-config]
-    stage-packages: [lsof]
+    build-packages:
+      - libncursesw5-dev
+      - pkg-config
+    stage-packages:
+      - libc-bin
+      - locales
+      - lsof
+  htop.wrapper:
+    plugin: dump
+    source: .
+    organize:
+      htop.wrapper: bin/htop.wrapper

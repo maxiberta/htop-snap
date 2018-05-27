@@ -1,5 +1,5 @@
 name: htop
-version: master
+version: candidate
 version-script: git -C parts/htop/build/ describe --tags
 summary: Interactive processes viewer
 description: |
@@ -26,7 +26,7 @@ parts:
     plugin: autotools
     source: https://github.com/hishamhm/htop
     source-type: git
-    source-tag: master
+    source-tag: 2.2.0
     build-packages:
       - libncursesw5-dev
       - pkg-config

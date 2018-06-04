@@ -1,5 +1,5 @@
 name: htop
-version: candidate
+version: 2.2.0
 version-script: git -C parts/htop/build/ describe --tags
 summary: Interactive processes viewer
 description: |

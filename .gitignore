@@ -1,4 +1,6 @@
 *.snap
+*.xdelta*
+*.png
 
 parts/
 prime/

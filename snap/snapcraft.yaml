@@ -39,6 +39,6 @@ parts:
       - lsof
   htop.wrapper:
     plugin: dump
-    source: .
+    source: ./snap/
     organize:
       htop.wrapper: bin/htop.wrapper

@@ -6,3 +6,4 @@ parts/
 prime/
 snap/
 stage/
+.snapcraft/

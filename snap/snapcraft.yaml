@@ -42,3 +42,6 @@ parts:
     source: ./snap/
     organize:
       htop.wrapper: bin/htop.wrapper
+
+passthrough:
+  license: GPL-2.0

@@ -1,8 +1,8 @@
+#snapcraft specifics
+parts
+stage
+prime
 *.snap
-*.xdelta*
-*.png
-
-parts/
-prime/
-snap/
-stage/
+.snapcraft
+__pycache__
+*.pyc

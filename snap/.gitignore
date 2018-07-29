@@ -1,9 +1,0 @@
-*.snap
-*.xdelta*
-*.png
-
-parts/
-prime/
-snap/
-stage/
-.snapcraft/

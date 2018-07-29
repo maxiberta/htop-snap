@@ -17,7 +17,11 @@ distributions.</p>
 
     sudo snap install htop
 
-That'll install the latest _stable_ release of `htop`. If you want the _next point release_, install from the `beta` channel instead:
+That'll install the latest _stable_ release of `htop`.
+
+([Don't have snapd installed?](https://snapcraft.io/docs/core/install))
+
+If you want the _next point release_, install from the `beta` channel instead:
 
     sudo snap install htop --beta
 
@@ -33,8 +37,6 @@ Once installed, this snap needs manually connecting to some plugs:
     sudo snap connect htop:process-control
     sudo snap connect htop:system-observe
 
-
-([Don't have snapd installed?](https://snapcraft.io/docs/core/install))
 
 ![htop](https://hisham.hm/htop/htop_graph.gif "htop")
 

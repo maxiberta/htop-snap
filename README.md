@@ -34,6 +34,7 @@ Or, if you're feeling adventurous, try the _next major release_ from the `edge` 
 Once installed, this snap needs manually connecting to some plugs:
 
     sudo snap connect htop:mount-observe
+    sudo snap connect htop:network-control  # optional, for DELAYACCT support
     sudo snap connect htop:process-control
     sudo snap connect htop:system-observe
 

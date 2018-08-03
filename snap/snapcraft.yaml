@@ -43,6 +43,7 @@ parts:
       - libc-bin
       - locales
       - lsof
+      - strace
   htop.wrapper:
     plugin: dump
     source: ./snap/

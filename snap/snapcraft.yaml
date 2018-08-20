@@ -20,6 +20,7 @@ confinement: strict
 apps:
   htop:
     command: bin/htop.wrapper
+    desktop: share/applications/htop.desktop
     plugs:
       - mount-observe
       - network-control

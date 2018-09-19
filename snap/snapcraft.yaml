@@ -14,6 +14,8 @@ description: |
     `sudo snap connect htop:process-control`
     `sudo snap connect htop:system-observe`
 
+icon: htop.png
+
 grade: stable
 confinement: strict
 

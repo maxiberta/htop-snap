@@ -47,7 +47,7 @@ parts:
       - strace
   htop.wrapper:
     plugin: dump
-    source: ./snap/
+    source: .
     organize:
       htop.wrapper: bin/htop.wrapper
 

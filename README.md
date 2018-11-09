@@ -4,8 +4,13 @@
   htop
 </h1>
 
-<p align="center"><b>This is the snap for `htop`</b>, <i>an interactive process viewer</i>. It works on Ubuntu, Fedora, Debian, and other major Linux
-distributions.</p>
+<p align="center">
+  <b>This is the snap for `htop`</b>, <i>an interactive process viewer</i>. It works on Ubuntu, Fedora, Debian, and other major Linux distributions.
+</p>
+
+<p align="center">
+  <a href="https://snapcraft.io/htop"><img src="https://raw.githubusercontent.com/snapcore/snap-store-badges/master/EN/%5BEN%5D-snap-store-black.png" alt="Get it from the Snap Store"></a>
+</p>
 
 <!-- Uncomment and modify this when you are provided a build status badge
 <p align="center">
@@ -13,7 +18,7 @@ distributions.</p>
 </p>
 -->
 
-## Install
+## Command-line Installation
 
     sudo snap install htop
 

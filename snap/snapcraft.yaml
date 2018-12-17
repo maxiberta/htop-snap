@@ -45,6 +45,8 @@ parts:
       - pkg-config
     stage-packages:
       - libc-bin
+      - libncursesw5
+      - libtinfo5
       - locales
       - lsof
       - strace

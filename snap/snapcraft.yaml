@@ -1,6 +1,6 @@
 name: htop
 version: 2.2.0
-version-script: git -C parts/htop/build/ describe --tags
+version-script: git -C parts/htop/src/ describe --tags
 summary: Interactive processes viewer
 description: |
   htop is an ncurses-based process viewer similar to top, but it
@@ -15,13 +15,14 @@ description: |
     `sudo snap connect htop:system-observe`
 
 icon: htop.png
-
 grade: stable
 confinement: strict
+passthrough:
+  license: GPL-2.0
 
 apps:
   htop:
-    command: bin/htop.wrapper
+    command: locales-launch htop
     desktop: share/applications/htop.desktop
     plugs:
       - mount-observe
@@ -44,14 +45,9 @@ parts:
       - pkg-config
     stage-packages:
       - libc-bin
+      - libncursesw5
+      - libtinfo5
       - locales
       - lsof
       - strace
-  htop.wrapper:
-    plugin: dump
-    source: .
-    organize:
-      htop.wrapper: bin/htop.wrapper
-
-passthrough:
-  license: GPL-2.0
+  locales-launch:

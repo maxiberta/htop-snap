@@ -1,11 +1,18 @@
 <h1 align="center">
-  <img src="https://hisham.hm/htop/htop-logo.png" alt="htop">
-  <br />
-  htop
+  <a href="https://hisham.hm/htop/">
+    <img src="https://hisham.hm/htop/htop-logo.png" alt="htop">
+    <br />
+    htop
+  </a>
 </h1>
 
-<p align="center"><b>This is the snap for `htop`</b>, <i>an interactive process viewer</i>. It works on Ubuntu, Fedora, Debian, and other major Linux
-distributions.</p>
+<p align="center">
+  <b>This is the snap for <a href="https://github.com/hishamhm/htop">htop</a></b>, <i>an interactive process viewer</i>. It works on Ubuntu, Fedora, Debian, and other major Linux distributions.
+</p>
+
+<p align="center">
+  <a href="https://snapcraft.io/htop"><img src="https://raw.githubusercontent.com/snapcore/snap-store-badges/master/EN/%5BEN%5D-snap-store-black.png" alt="Get it from the Snap Store"></a>
+</p>
 
 <!-- Uncomment and modify this when you are provided a build status badge
 <p align="center">
@@ -13,7 +20,7 @@ distributions.</p>
 </p>
 -->
 
-## Install
+## Command-line Installation
 
     sudo snap install htop
 
@@ -43,12 +50,8 @@ Once installed, this snap needs manually connecting to some plugs:
 
 ## The Snapcrafters
 
-| [![maxiberta](https://avatars2.githubusercontent.com/u/381336?s=128&v=4)](https://github.com/maxiberta/) |
-| :---: |
 | [maxiberta](https://github.com/maxiberta/) |
 
 ## Upstream
 
-| [![hishamhm](https://avatars3.githubusercontent.com/u/245621?s=128&v=4)](https://github.com/hishamhm) |
-| :---: |
 | [hishamhm](https://github.com/hishamhm) |

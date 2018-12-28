@@ -15,7 +15,7 @@ description: |
     `sudo snap connect htop:system-observe`
 
 icon: htop.png
-grade: stable
+grade: devel
 confinement: strict
 passthrough:
   license: GPL-2.0

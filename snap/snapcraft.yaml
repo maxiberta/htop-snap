@@ -1,4 +1,5 @@
 name: htop
+base: core18
 version: master
 version-script: git -C parts/htop/src/ describe --tags
 summary: Interactive processes viewer
@@ -17,8 +18,7 @@ description: |
 icon: htop.png
 grade: devel
 confinement: strict
-passthrough:
-  license: GPL-2.0
+license: GPL-2.0
 
 apps:
   htop:
@@ -44,10 +44,26 @@ parts:
       - libnl-genl-3-dev
       - pkg-config
     stage-packages:
-      - libc-bin
       - libncursesw5
       - libtinfo5
-      - locales
       - lsof
       - strace
+
   locales-launch:
+    source: https://github.com/Lin-Buo-Ren/locales-launch-part.git
+    source-subdir: launchers
+    plugin: dump
+    stage-packages:
+    # For localedef(1)
+    - libc-bin
+    # For locale data used by localedef(1)
+    - locales
+    # All pre-generated locale data
+    # DISABLED: Lots of duplicate data will be included in snap when this is staged, unless the target machine has no resource to generate them in runtime otherwise not using it
+    #
+    #   Lack of compiled locales breaks gettext based localisation - snapcraft - snapcraft.io
+    #   https://forum.snapcraft.io/t/lack-of-compiled-locales-breaks-gettext-based-localisation/3758
+    #
+    #- locales-all
+    organize:
+      locales-launch: bin/

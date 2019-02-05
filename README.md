@@ -1,13 +1,15 @@
 <h1 align="center">
-  <a href="https://hisham.hm/htop/">
+  <a href="https://github.com/hishamhm/htop">
     <img src="https://hisham.hm/htop/htop-logo.png" alt="htop">
     <br />
-    htop
+    htop snap
   </a>
 </h1>
 
 <p align="center">
-  <b>This is the snap for <a href="https://github.com/hishamhm/htop">htop</a></b>, <i>an interactive process viewer</i>. It works on Ubuntu, Fedora, Debian, and other major Linux distributions.
+  <b>This is the snap for <a href="https://github.com/hishamhm/htop">htop</a></b>, <i>an interactive process viewer</i>.
+  <br/>
+  It works on Ubuntu, Fedora, Debian, and other major Linux distributions.
 </p>
 
 <p align="center">
@@ -50,8 +52,8 @@ Once installed, this snap needs manually connecting to some plugs:
 
 ## The Snapcrafters
 
-| [maxiberta](https://github.com/maxiberta/) |
+[maxiberta](https://github.com/maxiberta/)
 
 ## Upstream
 
-| [hishamhm](https://github.com/hishamhm) |
+[hishamhm](https://github.com/hishamhm)

@@ -1,4 +1,5 @@
 name: htop
+base: core18
 version: 2.2.0
 version-script: git -C parts/htop/src/ describe --tags
 summary: Interactive processes viewer
@@ -19,8 +20,7 @@ description: |
 icon: htop.png
 grade: stable
 confinement: strict
-passthrough:
-  license: GPL-2.0
+license: GPL-2.0
 
 apps:
   htop:

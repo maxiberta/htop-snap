@@ -52,9 +52,9 @@ parts:
       - strace
 
   locales-launch:
-    source: https://github.com/Lin-Buo-Ren/locales-launch-part.git
-    source-subdir: launchers
-    plugin: dump
+    plugin: nil
+    stage-snaps:
+    - locales-launch
     stage-packages:
     # For localedef(1)
     - libc-bin
@@ -67,5 +67,3 @@ parts:
     #   https://forum.snapcraft.io/t/lack-of-compiled-locales-breaks-gettext-based-localisation/3758
     #
     #- locales-all
-    organize:
-      locales-launch: bin/

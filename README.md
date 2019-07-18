@@ -1,11 +1,3 @@
-<h1 align="center">
-  <a href="https://github.com/hishamhm/htop">
-    <img src="https://hisham.hm/htop/htop-logo.png" alt="htop">
-    <br />
-    htop snap
-  </a>
-</h1>
-
 <p align="center">
   <b>This is the snap for <a href="https://github.com/hishamhm/htop">htop</a></b>, <i>an interactive process viewer</i>.
   <br/>
@@ -13,7 +5,9 @@
 </p>
 
 <p align="center">
-  <a href="https://snapcraft.io/htop"><img src="https://raw.githubusercontent.com/snapcore/snap-store-badges/master/EN/%5BEN%5D-snap-store-black.png" alt="Get it from the Snap Store"></a>
+  <a href="https://snapcraft.io/htop">
+    <img alt="htop" src="https://snapcraft.io/htop/badge.svg" />
+  </a>
 </p>
 
 <!-- Uncomment and modify this when you are provided a build status badge

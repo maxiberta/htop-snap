@@ -1,7 +1,6 @@
 name: htop
-base: core18
-version: next
-version-script: git -C parts/htop/src/ describe --tags
+base: core20
+adopt-info: htop
 summary: Interactive processes viewer
 description: |
   htop is an ncurses-based process viewer similar to top, but it
@@ -23,8 +22,9 @@ license: GPL-2.0
 
 apps:
   htop:
-    command: locales-launch htop
-    desktop: share/applications/htop.desktop
+    command-chain: [bin/locales-launch]
+    command: usr/local/bin/htop
+    desktop: usr/local/share/applications/htop.desktop
     plugs:
       - mount-observe
       - network-control
@@ -37,8 +37,12 @@ parts:
     source: https://github.com/htop-dev/htop
     source-type: git
     source-branch: master
-    configflags:
+    autotools-configure-parameters:
       - --enable-delayacct
+    override-build: |
+      sed -i 's|Icon=htop|Icon=/usr/local/share/pixmaps/htop.png|' htop.desktop
+      snapcraftctl set-version $(git describe --tags --long)
+      snapcraftctl build
     build-packages:
       - libncursesw5-dev
       - libnl-3-dev

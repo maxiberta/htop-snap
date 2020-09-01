@@ -14,7 +14,7 @@ description: |
      sudo snap connect htop:mount-observe
      sudo snap connect htop:network-control  # optional, for DELAYACCT support`
 
-  Main website: https://hisham.hm/htop
+  Main website: https://htop.dev/
 
 icon: htop.png
 grade: devel
@@ -34,9 +34,9 @@ apps:
 parts:
   htop:
     plugin: autotools
-    source: https://github.com/hishamhm/htop
+    source: https://github.com/htop-dev/htop
     source-type: git
-    source-branch: next
+    source-branch: master
     configflags:
       - --enable-delayacct
     build-packages:

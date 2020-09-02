@@ -1,5 +1,5 @@
 <p align="center">
-  <b>This is the snap for <a href="https://github.com/hishamhm/htop">htop</a></b>, <i>an interactive process viewer</i>.
+  <b>This is the snap for <a href="https://htop.dev/">htop</a></b>, <i>an interactive process viewer</i>.
   <br/>
   It works on Ubuntu, Fedora, Debian, and other major Linux distributions.
 </p>
@@ -10,12 +10,6 @@
   </a>
 </p>
 
-<!-- Uncomment and modify this when you are provided a build status badge
-<p align="center">
-<a href="https://build.snapcraft.io/user/snapcrafters/fork-and-rename-me"><img src="https://build.snapcraft.io/badge/snapcrafters/fork-and-rename-me.svg" alt="Snap Status"></a>
-</p>
--->
-
 ## Command-line Installation
 
     sudo snap install htop
@@ -24,25 +18,16 @@
 
 That'll install the latest _stable_ release of `htop`.
 
-If you want the _next point release_ of `htop`, install from the `beta` channel instead:
-
-    sudo snap install htop --beta
-
-Or, if you're feeling adventurous, try the _next major release_ from the `edge` channel:
+Or, if you're feeling adventurous, try the autobuilds for the _next major release_ from the `edge` channel:
 
     sudo snap install htop --edge
 
-## Permissions
+## Permissions (optional)
 
-Once installed, this snap needs manually connecting to some plugs:
+Once installed, this snap can optionally be connected to some extra plugs:
 
     sudo snap connect htop:mount-observe
     sudo snap connect htop:network-control  # optional, for DELAYACCT support
-    sudo snap connect htop:process-control
-    sudo snap connect htop:system-observe
-
-
-![htop](https://hisham.hm/htop/htop_graph.gif "htop")
 
 ## The Snapcrafters
 
@@ -50,4 +35,4 @@ Once installed, this snap needs manually connecting to some plugs:
 
 ## Upstream
 
-[hishamhm](https://github.com/hishamhm)
+[htop-dev](https://github.com/htop-dev/htop)

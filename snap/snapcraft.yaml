@@ -41,7 +41,7 @@ parts:
       - --enable-delayacct
     override-build: |
       sed -i 's|Icon=htop|Icon=/usr/local/share/pixmaps/htop.png|' htop.desktop
-      snapcraftctl set-version $(git describe --tags --long)
+      snapcraftctl set-version $(git describe --tags)
       snapcraftctl build
     build-packages:
       - libncursesw5-dev

@@ -54,10 +54,12 @@ parts:
       - lsof
       - strace
 
+  # Stage snap for fixing the Glibc locales
+  # https://forum.snapcraft.io/t/the-locales-launch-stage-snap/10296
   locales-launch:
-    plugin: nil
-    stage-snaps:
-    - locales-launch
+    source: https://github.com/Lin-Buo-Ren/locales-launch.git
+    source-tag: v1.0.0
+    plugin: dump
     stage-packages:
     # For localedef(1)
     - libc-bin
@@ -70,3 +72,10 @@ parts:
     #   https://forum.snapcraft.io/t/lack-of-compiled-locales-breaks-gettext-based-localisation/3758
     #
     #- locales-all
+    stage:
+      - bin/locales-launch
+      - etc/locale.alias
+      - usr/bin/localedef
+      - usr/share/doc/locales
+      - usr/share/i18n
+      - usr/share/locale

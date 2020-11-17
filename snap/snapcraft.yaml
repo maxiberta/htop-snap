@@ -59,6 +59,7 @@ parts:
       - pkg-config
     stage-packages:
       - libncursesw5
+      - libsensors5
       - libtinfo5
       - lsof
       - strace

@@ -42,6 +42,7 @@ parts:
       - --enable-delayacct
       - --enable-linux-affinity
       - --enable-openvz
+      - --enable-sensors
       - --enable-taskstats
       - --enable-unicode
       - --enable-vserver
@@ -54,6 +55,7 @@ parts:
       - libncursesw5-dev
       - libnl-3-dev
       - libnl-genl-3-dev
+      - libsensors4-dev
       - pkg-config
     stage-packages:
       - libncursesw5

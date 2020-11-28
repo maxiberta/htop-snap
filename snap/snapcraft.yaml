@@ -38,12 +38,10 @@ parts:
     source-type: git
     source-branch: master
     autotools-configure-parameters:
-      - --enable-cgroup
       - --enable-delayacct
       - --enable-linux-affinity
       - --enable-openvz
       - --enable-sensors
-      - --enable-taskstats
       - --enable-unicode
       - --enable-vserver
       - --enable-werror

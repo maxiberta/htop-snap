@@ -25,6 +25,8 @@ apps:
     command-chain: [bin/locales-launch]
     command: usr/local/bin/htop
     desktop: usr/local/share/applications/htop.desktop
+    environment:
+      TERMINFO_DIRS: $SNAP/lib/terminfo:$SNAP/usr/share/terminfo
     plugs:
       - mount-observe
       - network-control
@@ -49,8 +51,11 @@ parts:
       - libnl-genl-3-dev
       - pkg-config
     stage-packages:
+      - kitty-terminfo
       - libncursesw5
       - libtinfo5
+      - ncurses-base
+      - ncurses-term
       - lsof
       - strace
 

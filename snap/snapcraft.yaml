@@ -38,7 +38,7 @@ parts:
     plugin: autotools
     source: https://github.com/htop-dev/htop
     source-type: git
-    source-tag: 3.0.2
+    source-tag: 3.0.3
     autotools-configure-parameters:
       - --enable-delayacct
       - --enable-linux-affinity

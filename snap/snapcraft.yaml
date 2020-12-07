@@ -45,7 +45,6 @@ parts:
       - --enable-openvz
       - --enable-unicode
       - --enable-vserver
-      - --enable-werror
       - --with-sensors
     override-build: |
       sed -i 's|Icon=htop|Icon=/usr/local/share/pixmaps/htop.png|' htop.desktop

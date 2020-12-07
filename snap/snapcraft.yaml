@@ -41,6 +41,11 @@ parts:
     source-tag: 3.0.2
     autotools-configure-parameters:
       - --enable-delayacct
+      - --enable-linux-affinity
+      - --enable-openvz
+      - --enable-unicode
+      - --enable-vserver
+      - --with-sensors
     override-build: |
       sed -i 's|Icon=htop|Icon=/usr/local/share/pixmaps/htop.png|' htop.desktop
       snapcraftctl set-version $(git describe --tags)
@@ -49,10 +54,12 @@ parts:
       - libncursesw5-dev
       - libnl-3-dev
       - libnl-genl-3-dev
+      - libsensors4-dev
       - pkg-config
     stage-packages:
       - kitty-terminfo
       - libncursesw5
+      - libsensors5
       - libtinfo5
       - ncurses-base
       - ncurses-term

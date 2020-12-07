@@ -43,10 +43,10 @@ parts:
       - --enable-delayacct
       - --enable-linux-affinity
       - --enable-openvz
-      - --enable-sensors
       - --enable-unicode
       - --enable-vserver
       - --enable-werror
+      - --with-sensors
     override-build: |
       sed -i 's|Icon=htop|Icon=/usr/local/share/pixmaps/htop.png|' htop.desktop
       snapcraftctl set-version $(git describe --tags --long)

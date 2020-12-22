@@ -61,6 +61,7 @@ parts:
       - libncursesw5
       - libsensors5
       - libtinfo5
+      - libsystemd0
       - ncurses-base
       - ncurses-term
       - lsof

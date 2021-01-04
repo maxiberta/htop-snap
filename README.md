@@ -26,8 +26,9 @@ Or, if you're feeling adventurous, try the autobuilds for the _next major releas
 
 Once installed, this snap can optionally be connected to some extra plugs:
 
+    sudo snap connect htop:hardware-observe  # libsensors support
     sudo snap connect htop:mount-observe
-    sudo snap connect htop:network-control  # optional, for DELAYACCT support
+    sudo snap connect htop:network-control  # DELAYACCT support
 
 ## The Snapcrafters
 

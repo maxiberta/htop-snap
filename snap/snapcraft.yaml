@@ -29,6 +29,7 @@ apps:
     environment:
       TERMINFO_DIRS: $SNAP/lib/terminfo:$SNAP/usr/share/terminfo
     plugs:
+      - hardware-observe
       - mount-observe
       - network-control
       - process-control

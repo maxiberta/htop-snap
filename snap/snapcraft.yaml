@@ -19,6 +19,7 @@ icon: htop.png
 grade: stable
 confinement: strict
 license: GPL-2.0
+compression: lzo
 
 apps:
   htop:
@@ -28,6 +29,7 @@ apps:
     environment:
       TERMINFO_DIRS: $SNAP/lib/terminfo:$SNAP/usr/share/terminfo
     plugs:
+      - hardware-observe
       - mount-observe
       - network-control
       - process-control

@@ -47,12 +47,14 @@ parts:
       - --enable-openvz
       - --enable-unicode
       - --enable-vserver
+      - --with-capabilities
       - --with-sensors
     override-build: |
       sed -i 's|Icon=htop|Icon=/usr/local/share/pixmaps/htop.png|' htop.desktop
       snapcraftctl set-version $(git describe --tags --long)
       snapcraftctl build
     build-packages:
+      - libcap-dev
       - libncursesw5-dev
       - libnl-3-dev
       - libnl-genl-3-dev
@@ -60,6 +62,7 @@ parts:
       - pkg-config
     stage-packages:
       - kitty-terminfo
+      - libcap2
       - libncursesw5
       - libsensors5
       - libtinfo5

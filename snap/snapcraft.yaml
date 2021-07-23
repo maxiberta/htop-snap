@@ -21,14 +21,6 @@ confinement: strict
 license: GPL-2.0
 compression: lzo
 
-plugs:
-  pcp:
-    interface: system-files
-    read:
-      - /etc/pcp.conf
-    write:
-      - /run/pcp/pmcd.socket
-
 apps:
   htop:
     command-chain: [bin/locales-launch]
@@ -36,25 +28,25 @@ apps:
     desktop: usr/local/share/applications/htop.desktop
     environment:
       TERMINFO_DIRS: $SNAP/lib/terminfo:$SNAP/usr/share/terminfo
-    plugs:
-      - hardware-observe
-      - mount-observe
-      - network-control
-      - process-control
-      - system-observe
   pcp-htop:
     command-chain: [bin/locales-launch]
     command: usr/local/bin/pcp-htop
     environment:
       TERMINFO_DIRS: $SNAP/lib/terminfo:$SNAP/usr/share/terminfo
-    plugs:
-      - network
-      - hardware-observe
-      - mount-observe
-      - network-control
-      - pcp
-      - process-control
-      - system-observe
+
+plugs:
+  network:
+  hardware-observe:
+  mount-observe:
+  network-control:
+  process-control:
+  system-observe:
+  pcp:
+    interface: system-files
+    read:
+      - /etc/pcp.conf
+    write:
+      - /run/pcp/pmcd.socket
 
 parts:
   htop:

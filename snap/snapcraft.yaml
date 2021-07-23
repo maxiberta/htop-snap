@@ -22,6 +22,14 @@ confinement: strict
 license: GPL-2.0
 compression: lzo
 
+plugs:
+  pcp:
+    interface: system-files
+    read:
+      - /etc/pcp.conf
+    write:
+      - /run/pcp/pmcd.socket
+
 apps:
   htop:
     command-chain: [bin/locales-launch]
@@ -45,6 +53,7 @@ apps:
       - hardware-observe
       - mount-observe
       - network-control
+      - pcp
       - process-control
       - system-observe
 

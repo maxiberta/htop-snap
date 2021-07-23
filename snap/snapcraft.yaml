@@ -10,9 +10,8 @@ description: |
 
   Once installed, this snap can _optionally_ be connected to some extra plugs:
 
-     sudo snap connect htop:hardware-observe  # temperature+battery status
      sudo snap connect htop:mount-observe
-     sudo snap connect htop:network-control  # optional, for DELAYACCT support`
+     sudo snap connect htop:network-control  # DELAYACCT support
 
   Main website: https://htop.dev/
 

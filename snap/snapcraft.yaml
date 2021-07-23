@@ -43,13 +43,13 @@ parts:
     source-type: git
     source-branch: master
     autotools-configure-parameters:
+      - --enable-capabilities
       - --enable-delayacct
       - --enable-linux-affinity
       - --enable-openvz
+      - --enable-sensors
       - --enable-unicode
       - --enable-vserver
-      - --with-capabilities
-      - --with-sensors
     override-build: |
       snapcraftctl set-version $(git describe --tags --long)
       snapcraftctl build

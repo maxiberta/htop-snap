@@ -28,7 +28,6 @@ Once installed, this snap can optionally be connected to some extra plugs:
 
     sudo snap connect htop:mount-observe
     sudo snap connect htop:network-control  # DELAYACCT support
-    sudo snap connect htop:pcp              # experimental PCP support - run `htop.pcp-htop`
 
 ## The Snapcrafters
 

@@ -28,11 +28,6 @@ apps:
     desktop: usr/local/share/applications/htop.desktop
     environment:
       TERMINFO_DIRS: $SNAP/lib/terminfo:$SNAP/usr/share/terminfo
-  pcp-htop:
-    command-chain: [bin/locales-launch]
-    command: usr/local/bin/pcp-htop
-    environment:
-      TERMINFO_DIRS: $SNAP/lib/terminfo:$SNAP/usr/share/terminfo
 
 plugs:
   network:
@@ -41,12 +36,6 @@ plugs:
   network-control:
   process-control:
   system-observe:
-  pcp:
-    interface: system-files
-    read:
-      - /etc/pcp.conf
-    write:
-      - /run/pcp/pmcd.socket
 
 parts:
   htop:
@@ -70,14 +59,12 @@ parts:
       - libncursesw5-dev
       - libnl-3-dev
       - libnl-genl-3-dev
-      - libpcp3-dev
       - libsensors4-dev
       - pkg-config
     stage-packages:
       - kitty-terminfo
       - libcap2
       - libncursesw5
-      - libpcp3
       - libsensors5
       - libtinfo5
       - libsystemd0
@@ -85,23 +72,6 @@ parts:
       - ncurses-term
       - lsof
       - strace
-
-  pcp-htop:
-    plugin: autotools
-    source: https://github.com/htop-dev/htop
-    source-type: git
-    source-branch: master
-    autotools-configure-parameters:
-      - --enable-capabilities
-      - --enable-delayacct
-      - --enable-linux-affinity
-      - --enable-openvz
-      - --enable-pcp
-      - --enable-sensors
-      - --enable-unicode
-      - --enable-vserver
-    after:
-      - htop
 
   # Stage snap for fixing the Glibc locales
   # https://forum.snapcraft.io/t/the-locales-launch-stage-snap/10296

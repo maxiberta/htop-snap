@@ -33,6 +33,14 @@ Once installed, this snap can optionally be connected to some extra plugs:
 
 [maxiberta](https://github.com/maxiberta/)
 
+## License
+
+The build files in this repository are provided unter the terms of the [MIT license](LICENSE).
+
+`htop` is an open source system monitor licensed under the [GPL version 2 or later](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
+
+The `htop` logo in this repository has been adopted from the upstream repository, thus inheriting its license.
+
 ## Upstream
 
-[htop-dev](https://github.com/htop-dev/htop)
+For more information on `htop` have a look at its [homepage](https://htop.dev) or the [source repository](https://github.com/htop-dev/htop).

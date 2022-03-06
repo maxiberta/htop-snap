@@ -35,7 +35,7 @@ Once installed, this snap can optionally be connected to some extra plugs:
 
 ## License
 
-The build files in this repository are provided unter the terms of the [MIT license](LICENSE).
+The build files in this repository are provided under the terms of the [MIT license](LICENSE).
 
 `htop` is an open source system monitor licensed under the [GPL version 2 or later](https://www.gnu.org/licenses/old-licenses/gpl-2.0.html).
 

@@ -1,5 +1,5 @@
 name: htop
-base: core20
+base: core22
 adopt-info: htop
 summary: Interactive processes viewer
 description: |
@@ -52,8 +52,8 @@ parts:
       - --enable-unicode
       - --enable-vserver
     override-build: |
-      snapcraftctl set-version $(git describe --tags --long)
-      snapcraftctl build
+      craftctl set version=$(git describe --tags --long)
+      craftctl default
     build-packages:
       - libcap-dev
       - libncursesw5-dev

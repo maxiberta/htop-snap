@@ -87,10 +87,8 @@ parts:
     - locales
     # All pre-generated locale data
     # DISABLED: Lots of duplicate data will be included in snap when this is staged, unless the target machine has no resource to generate them in runtime otherwise not using it
-    #
     #   Lack of compiled locales breaks gettext based localisation - snapcraft - snapcraft.io
     #   https://forum.snapcraft.io/t/lack-of-compiled-locales-breaks-gettext-based-localisation/3758
-    #
     #- locales-all
     stage:
       - bin/locales-launch

@@ -1,5 +1,5 @@
 name: htop
-base: core20
+base: core22
 adopt-info: htop
 summary: Interactive processes viewer
 description: |
@@ -11,7 +11,7 @@ description: |
   Once installed, this snap can _optionally_ be connected to some extra plugs:
 
      sudo snap connect htop:mount-observe
-     sudo snap connect htop:network-control  # optional, for DELAYACCT support`
+     sudo snap connect htop:network-control  # DELAYACCT support
 
   Main website: https://htop.dev/
 
@@ -28,12 +28,14 @@ apps:
     desktop: usr/local/share/applications/htop.desktop
     environment:
       TERMINFO_DIRS: $SNAP/lib/terminfo:$SNAP/usr/share/terminfo
-    plugs:
-      - hardware-observe
-      - mount-observe
-      - network-control
-      - process-control
-      - system-observe
+
+plugs:
+  network:
+  hardware-observe:
+  mount-observe:
+  network-control:
+  process-control:
+  system-observe:
 
 parts:
   htop:
@@ -42,17 +44,19 @@ parts:
     source-type: git
     source-tag: 3.2.0
     autotools-configure-parameters:
+      - --enable-capabilities
       - --enable-delayacct
       - --enable-linux-affinity
       - --enable-openvz
+      - --enable-sensors
       - --enable-unicode
       - --enable-vserver
-      - --with-sensors
     override-build: |
-      sed -i 's|Icon=htop|Icon=/usr/local/share/pixmaps/htop.png|' htop.desktop
-      snapcraftctl set-version $(git describe --tags)
-      snapcraftctl build
+      craftctl set version=$(git describe --tags)
+      craftctl default
     build-packages:
+      - libcap-dev
+      - libgcc-s1
       - libncursesw5-dev
       - libnl-3-dev
       - libnl-genl-3-dev
@@ -60,6 +64,7 @@ parts:
       - pkg-config
     stage-packages:
       - kitty-terminfo
+      - libcap2
       - libncursesw5
       - libsensors5
       - libtinfo5
@@ -82,10 +87,8 @@ parts:
     - locales
     # All pre-generated locale data
     # DISABLED: Lots of duplicate data will be included in snap when this is staged, unless the target machine has no resource to generate them in runtime otherwise not using it
-    #
     #   Lack of compiled locales breaks gettext based localisation - snapcraft - snapcraft.io
     #   https://forum.snapcraft.io/t/lack-of-compiled-locales-breaks-gettext-based-localisation/3758
-    #
     #- locales-all
     stage:
       - bin/locales-launch

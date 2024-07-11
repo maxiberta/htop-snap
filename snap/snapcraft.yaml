@@ -1,5 +1,5 @@
 name: htop
-base: core22
+base: core24
 adopt-info: htop
 summary: Interactive processes viewer
 description: |
@@ -28,14 +28,13 @@ apps:
     desktop: usr/local/share/applications/htop.desktop
     environment:
       TERMINFO_DIRS: $SNAP/lib/terminfo:$SNAP/usr/share/terminfo
-
-plugs:
-  network:
-  hardware-observe:
-  mount-observe:
-  network-control:
-  process-control:
-  system-observe:
+    plugs:
+      - network
+      - hardware-observe
+      - mount-observe
+      - network-control
+      - process-control
+      - system-observe
 
 parts:
   htop:
@@ -57,17 +56,17 @@ parts:
     build-packages:
       - libcap-dev
       - libgcc-s1
-      - libncursesw5-dev
+      - libncurses-dev
       - libnl-3-dev
       - libnl-genl-3-dev
-      - libsensors4-dev
+      - libsensors-dev
       - pkg-config
     stage-packages:
       - kitty-terminfo
       - libcap2
-      - libncursesw5
+      - libncursesw6
       - libsensors5
-      - libtinfo5
+      - libtinfo6
       - libsystemd0
       - ncurses-base
       - ncurses-term

@@ -1,0 +1,3 @@
+#!/bin/sh
+infocmp -q >/dev/null || export TERM=xterm-256color
+exec "${@}"

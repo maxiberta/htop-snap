@@ -23,15 +23,15 @@ compression: lzo
 
 apps:
   htop:
-    command-chain: [bin/locales-launch]
+    command-chain: [bin/locales-launch, bin/htop.snap.check-terminfo]
     command: usr/local/bin/htop
     desktop: usr/local/share/applications/htop.desktop
     environment:
       TERMINFO_DIRS: $SNAP/lib/terminfo:$SNAP/usr/share/terminfo
     plugs:
-      - network
       - hardware-observe
       - mount-observe
+      - network
       - network-control
       - process-control
       - system-observe
@@ -69,6 +69,7 @@ parts:
       - libtinfo6
       - libsystemd0
       - ncurses-base
+      - ncurses-bin
       - ncurses-term
       - lsof
       - strace
@@ -96,3 +97,9 @@ parts:
       - usr/share/doc/locales
       - usr/share/i18n
       - usr/share/locale
+
+  terminfo-hack:
+    source: snap/local
+    plugin: dump
+    stage:
+      - bin/htop.snap.check-terminfo

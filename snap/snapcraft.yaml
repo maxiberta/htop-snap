@@ -41,7 +41,7 @@ parts:
     plugin: autotools
     source: https://github.com/htop-dev/htop
     source-type: git
-    source-tag: 3.5.1
+    source-tag: 3.5.2
     autotools-configure-parameters:
       - --enable-capabilities
       - --enable-delayacct

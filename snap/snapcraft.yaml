@@ -30,6 +30,7 @@ apps:
       TERMINFO_DIRS: $SNAP/lib/terminfo:$SNAP/usr/share/terminfo
     plugs:
       - hardware-observe
+      - kernel-module-observe
       - mount-observe
       - network
       - network-control

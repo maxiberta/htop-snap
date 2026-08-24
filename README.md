@@ -26,6 +26,7 @@ Or, if you're feeling adventurous, try the [Launchpad autobuilds](https://launch
 
 Once installed, this snap can optionally be connected to some extra plugs:
 
+    sudo snap connect htop:kernel-module-observe
     sudo snap connect htop:mount-observe
     sudo snap connect htop:network-control  # DELAYACCT support
 

@@ -1,5 +1,5 @@
 name: htop
-base: core24
+base: core26
 adopt-info: htop
 summary: Interactive processes viewer
 description: |

@@ -1,0 +1,49 @@
+name: Check upstream changes CRONJOB
+on:
+  schedule:
+    - cron: '30 * * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: check-upstream
+  cancel-in-progress: false
+
+jobs:
+  check-and-trigger:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: write
+    env:
+      UPSTREAM_REPO: "htop-dev/htop"
+      UPSTREAM_REF: "main"
+      SNAP_NAME: "htop"
+      SNAP_TRACK: "latest"
+      SNAP_CHANNEL: "edge"
+      SNAP_ARCH: "amd64"
+      TARGET_REPO: ${{ github.repository }}
+      EVENT_TYPE: "trigger-edge-build-event"
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - id: fetch-upstream
+        name: Fetch upstream commit
+        run: |
+          set -euo pipefail
+          upstream_commit=$(gh api "repos/${UPSTREAM_REPO}/commits/${UPSTREAM_REF}" --jq .sha)
+          echo "upstream-commit=$upstream_commit" | tee -a "$GITHUB_OUTPUT"
+
+      - id: fetch-snap
+        name: Fetch snap version
+        run: |
+          set -euo pipefail
+          snap_version=$(curl -sSf --retry 3 --retry-all-errors \
+            -H 'Snap-Device-Series: 16' "https://api.snapcraft.io/v2/snaps/info/${SNAP_NAME}" \
+            | jq -r --arg arch "$SNAP_ARCH" --arg track "$SNAP_TRACK" --arg ch "$SNAP_CHANNEL" \
+              '."channel-map"[] | select(.channel.architecture==$arch and .channel.track==$track and .channel.name==$ch) | .version' \
+            | grep -oP '(?<=-g)[0-9a-f]+' || true)
+          echo "snap-version=$snap_version" | tee -a "$GITHUB_OUTPUT"
+
+      - name: Trigger edge build
+        if: >-
+          !startsWith(steps.fetch-upstream.outputs.upstream-commit, steps.fetch-snap.outputs.snap-version)
+        run: gh api -X POST "repos/${TARGET_REPO}/dispatches" -f event_type="${EVENT_TYPE}"

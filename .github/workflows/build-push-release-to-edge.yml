@@ -1,0 +1,22 @@
+name: EDGE multi-arch builds from main (unstable)
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  repository_dispatch:
+    types: [trigger-edge-build-event]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: edge-build
+  cancel-in-progress: true
+
+jobs:
+  request-launchpad-build:
+    uses: ./.github/workflows/request-launchpad-build.yml
+    with:
+      snap-name: htop-edge
+    secrets:
+      LP_CREDENTIALS_B64: ${{ secrets.LP_CREDENTIALS_B64 }}

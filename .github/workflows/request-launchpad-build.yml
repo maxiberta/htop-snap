@@ -1,0 +1,41 @@
+name: Request Launchpad snap builds
+
+on:
+  workflow_call:
+    inputs:
+      snap-name:
+        description: Launchpad snap to request builds for
+        required: true
+        type: string
+    secrets:
+      LP_CREDENTIALS_B64:
+        description: Base64-encoded launchpadlib credentials for lp-shell
+        required: true
+
+permissions:
+  contents: read
+
+jobs:
+  request-launchpad-build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 1
+    steps:
+      - name: Install lptools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lptools
+
+      - name: Write Launchpad credentials
+        env:
+          LP_CREDENTIALS_B64: ${{ secrets.LP_CREDENTIALS_B64 }}
+          LP_CREDENTIALS_FILE: ${{ runner.temp }}/lp-shell-credentials
+        run: |
+          printf '%s' "$LP_CREDENTIALS_B64" | base64 -d > "$LP_CREDENTIALS_FILE"
+          chmod 600 "$LP_CREDENTIALS_FILE"
+
+      - name: Request Launchpad builds
+        env:
+          SNAP_NAME: ${{ inputs.snap-name }}
+          LP_CREDENTIALS_FILE: ${{ runner.temp }}/lp-shell-credentials
+        run: |
+          timeout 30 /usr/bin/lp-shell production devel -c 'import os; lp.snaps.getByName(name=os.environ["SNAP_NAME"], owner=lp.me).requestBuilds(pocket="Updates", archive=lp.distributions["ubuntu"].main_archive)'

@@ -1,0 +1,20 @@
+name: CANDIDATE multi-arch builds (stable)
+on:
+  push:
+    branches: [candidate]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: candidate-build
+  cancel-in-progress: true
+
+jobs:
+  request-launchpad-build:
+    uses: ./.github/workflows/request-launchpad-build.yml
+    with:
+      snap-name: htop-candidate
+    secrets:
+      LP_CREDENTIALS_B64: ${{ secrets.LP_CREDENTIALS_B64 }}
